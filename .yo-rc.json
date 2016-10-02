@@ -1,0 +1,9 @@
+{
+  "generator-react-webpack": {
+    "appName": "cgsshelper-frontend",
+    "style": "sass",
+    "cssmodules": true,
+    "postcss": false,
+    "generatedWithVersion": 4
+  }
+}

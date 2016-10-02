@@ -1,0 +1,9 @@
+/* Populated by react-webpack-redux:action */
+export const GET_NOW_EVENT = 'GET_NOW_EVENT';
+export const ADD_EVENT = 'ADD_EVENT';
+export const GET_ALL_CARDS = 'GET_ALL_CARDS';
+export const ADD_CARDS = 'ADD_CARDS';
+export const FILTER_CARDS = 'FILTER_CARDS';
+export const START_FETCH = 'START_FETCH';
+export const FAILED_FETCH = 'FAILED_FETCH';
+export const FINISH_FETCH = 'FINISH_FETCH';
