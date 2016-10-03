@@ -1,5 +1,9 @@
 # CGSS Helper
 
+# v0.1.1
+
+- fix countdown on iOS device
+
 # v0.1.0
 
 - add basic ui

@@ -3,6 +3,8 @@ import cssmodules from 'react-css-modules';
 import styles from './eventnow.cssmodule.sass';
 let config = require('config');
 
+import moment from 'moment';
+
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import Countdown from 'react-count-down';
@@ -35,10 +37,11 @@ class EventNow extends React.Component {
             <img src={config.default.apiAddr + nowEvent.comm_data.bg_url} alt=""/>
           </CardMedia>
           <CardText>
+            <p>All time are local time!</p>
             <p>Event Type: { nowEvent.comm_data.type }</p>
-            <p>Start: { nowEvent.comm_data.event_start } </p>
-            <p>End: { nowEvent.comm_data.event_end } </p>
-            <p>Show Result: { nowEvent.comm_data.result_start } </p>
+            <p>Start: { moment(nowEvent.comm_data.event_start).format('LLLL') } </p>
+            <p>End: { moment(nowEvent.comm_data.event_end).format('LLLL') } </p>
+            <p>Show Result: { moment(nowEvent.comm_data.result_start).format('LLLL') } </p>
             <p>Has Story: { Number(nowEvent.tour["define"].story_flag) ? "Yes" : "No" } // Story Count: {nowEvent.tour["story_detail"].length} </p>
           </CardText>
           <CardActions>
