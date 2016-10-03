@@ -1,5 +1,9 @@
 # CGSS Helper
 
+# v0.1.2
+
+- fix typos
+
 # v0.1.1
 
 - fix countdown on iOS device

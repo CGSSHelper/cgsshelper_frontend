@@ -116,7 +116,7 @@ class Medley extends React.Component {
     return (
       <Card>
         <CardTitle
-          title="Event Atapon"
+          title="Event Medley"
           subtitle="Input your data and calculate your potential!"
         />
         <CardText>
