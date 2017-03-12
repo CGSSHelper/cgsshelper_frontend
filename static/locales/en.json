@@ -1,0 +1,10 @@
+{
+  "main.hello": "Welcome to",
+  "event.now_title": "Current event",
+  "event.next_title": "Next event",
+  "event.next_countdown": "Until event begins is still",
+  "event.event_end_countdown": "Until event ends is still",
+  "event.result_start_countdown": "Until event result announcement begins is still",
+  "event.result_end_countdown": "Until event result announcement ends is still",
+  "event.background_image": "Event background image"
+}

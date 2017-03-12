@@ -1,0 +1,78 @@
+<template>
+  <div>
+    <div class="title">
+      <img src="../assets/cgss.png">
+      <span class="md-display-2">{{ $t('main.hello') }} {{ msg }}</span>
+    </div>
+
+    <div class="title" v-if="Object.keys(now_data.comm_data).length">
+      <p class="md-title">{{ $t('event.now_title') }}</p>
+      <p class="md-display-1">{{ now_data.comm_data.name }}</p>
+      <div v-if="(new Date(now_data.comm_data.event_end)) > (new Date())">
+        <p class="md-title">{{ $t('event.event_end_countdown') }}</p>
+        <countdown :target-time="now_data.comm_data.event_end"></countdown>
+      </div>
+      <div v-else-if="(new Date(now_data.comm_data.result_start)) > (new Date())">
+        <p class="md-title">{{ $t('event.result_start_countdown') }}</p>
+        <countdown :target-time="now_data.comm_data.result_start"></countdown>
+      </div>
+      <div v-else-if="(new Date(now_data.comm_data.result_end)) > (new Date())">
+        <p class="md-title">{{ $t('event.result_end_countdown') }}</p>
+        <countdown :target-time="now_data.comm_data.result_end"></countdown>
+      </div>
+      <p class="md-title">{{ $t('event.background_image') }}</p>
+      <md-button class="md-primary md-raised" v-if="!show_bg_img" @click.native="show_bg_img = !show_bg_img">show image</md-button>
+      <img v-if="show_bg_img" @click.native="show_bg_img = !show_bg_img" v-lazy="api_addr + now_data.comm_data.bg_url" style="max-width: 100%"/>
+    </div>
+
+    <div class="title" v-if="Object.keys(next_data.comm_data).length">
+      <p class="md-title">{{ $t('event.next_title') }}</p>
+      <p class="md-display-1">{{ next_data.comm_data.name }}</p>
+      <p class="md-title">{{ $t('event.next_countdown') }}</p>
+      <countdown :target-time="next_data.comm_data.event_start.replace('2099', (new Date()).getFullYear())"></countdown>
+    </div>
+  </div>
+</template>
+
+<script>
+import Vue from 'vue';
+import event from '../api/event';
+import countdown from './utils/Countdown';
+
+/* global BUILD_VERSION:true */
+export default {
+  name: 'hello',
+  data() {
+    return {
+      msg: 'CGSS Helper',
+      now_data: { comm_data: {} },
+      next_data: { comm_data: {} },
+      api_addr: Vue.config.api_addr,
+      show_bg_img: false,
+    };
+  },
+  components: {
+    countdown,
+  },
+  computed: {},
+  mounted() {
+    event.now().then((res) => {
+      this.now_data = Object.assign({}, res);
+    });
+    event.next().then((res) => {
+      this.next_data = Object.assign({}, res);
+    });
+  },
+};
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+.title {
+  text-align: center;
+}
+
+.event-name {
+
+}
+</style>

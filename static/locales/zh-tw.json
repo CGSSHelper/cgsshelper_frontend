@@ -1,0 +1,10 @@
+{
+  "main.hello": "歡迎使用",
+  "event.now_title": "當前活動",
+  "event.next_title": "下期活動",
+  "event.next_countdown": "離活動開始還有",
+  "event.event_end_countdown": "離活動結束還有",
+  "event.result_start_countdown": "離結果公布還有",
+  "event.result_end_countdown": "離結果公布結束還有",
+  "event.background_image": "背景圖預覽"
+}
