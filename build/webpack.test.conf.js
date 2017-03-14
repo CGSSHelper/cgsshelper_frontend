@@ -14,7 +14,12 @@ var webpackConfig = merge(baseConfig, {
   plugins: [
     new webpack.DefinePlugin({
       'process.env': require('../config/test.env')
-    })
+    }),
+    // https://gist.github.com/Couto/b29676dd1ab8714a818f
+    new webpack.ProvidePlugin({
+        'Promise': 'es6-promise',
+        'fetch': 'imports-loader?this=>global!exports-loader?global.fetch!whatwg-fetch'
+    }),
   ]
 })
 

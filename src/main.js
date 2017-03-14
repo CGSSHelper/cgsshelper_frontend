@@ -27,6 +27,18 @@ if (process.env.NODE_ENV === 'development') {
   Vue.config.api_addr = '//api.cgsshelper.tk';
 }
 
+Vue.material.registerTheme({
+  red: {
+    primary: 'red',
+  },
+  blue: {
+    primary: 'blue',
+  },
+  orange: {
+    primary: 'orange',
+  },
+});
+
 Vue.i18n.add('en', require('../static/locales/en.json'));
 Vue.i18n.add('zh-cn', require('../static/locales/zh-cn.json'));
 Vue.i18n.add('zh-tw', require('../static/locales/zh-tw.json'));

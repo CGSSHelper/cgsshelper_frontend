@@ -11,8 +11,8 @@ module.exports = {
     browser
       .url(devServer)
       .waitForElementVisible('#app', 5000)
-      .assert.elementPresent('.hello')
-      .assert.containsText('h1', 'Welcome to Your Vue.js App')
+      .assert.elementPresent('.title')
+      .assert.containsText('.md-display-2', '欢迎使用 CGSS Helper')
       .assert.elementCount('img', 1)
       .end();
   },

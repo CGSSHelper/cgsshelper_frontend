@@ -6,5 +6,6 @@
   "event.event_end_countdown": "离活动结束还有",
   "event.result_start_countdown": "离结果公布还有",
   "event.result_end_countdown": "离结果公布结束还有",
-  "event.background_image": "背景图预览"
+  "event.background_image": "背景图预览",
+  "event.reward_cards": "奖励卡片"
 }

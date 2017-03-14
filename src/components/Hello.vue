@@ -2,7 +2,7 @@
   <div>
     <div class="title">
       <img src="../assets/cgss.png">
-      <span class="md-display-2">{{ $t('main.hello') }} {{ msg }}</span>
+      <p class="md-display-2">{{ $t('main.hello') }} {{ msg }}</p>
     </div>
 
     <div class="title" v-if="Object.keys(now_data.comm_data).length">
@@ -23,13 +23,17 @@
       <p class="md-title">{{ $t('event.background_image') }}</p>
       <md-button class="md-primary md-raised" v-if="!show_bg_img" @click.native="show_bg_img = !show_bg_img">show image</md-button>
       <img v-if="show_bg_img" @click.native="show_bg_img = !show_bg_img" v-lazy="api_addr + now_data.comm_data.bg_url" style="max-width: 100%"/>
+      <p class="md-title">{{ $t('event.reward_cards') }}</p>
+      <div class="card-container">
+          <Card class="reward-card" v-if="now_data.detail" v-for="card in now_data.detail.available" :card-id="card.reward_id" :key="card.reward_id"></Card>
+      </div>
     </div>
 
     <div class="title" v-if="Object.keys(next_data.comm_data).length">
       <p class="md-title">{{ $t('event.next_title') }}</p>
       <p class="md-display-1">{{ next_data.comm_data.name }}</p>
       <p class="md-title">{{ $t('event.next_countdown') }}</p>
-      <countdown :target-time="next_data.comm_data.event_start.replace('2099', (new Date()).getFullYear())"></countdown>
+      <Countdown :target-time="next_data.comm_data.event_start.replace('2099', (new Date()).getFullYear())"></Countdown>
     </div>
   </div>
 </template>
@@ -37,7 +41,8 @@
 <script>
 import Vue from 'vue';
 import event from '../api/event';
-import countdown from './utils/Countdown';
+import Card from './utils/Card';
+import Countdown from './utils/Countdown';
 
 /* global BUILD_VERSION:true */
 export default {
@@ -52,11 +57,15 @@ export default {
     };
   },
   components: {
-    countdown,
+    Countdown,
+    Card,
   },
   computed: {},
   mounted() {
     event.now().then((res) => {
+      this.now_data = Object.assign({}, res);
+      return event.detail(res.comm_data.id);
+    }).then((res) => {
       this.now_data = Object.assign({}, res);
     });
     event.next().then((res) => {
@@ -74,5 +83,27 @@ export default {
 
 .event-name {
 
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+}
+
+.reward-card {
+  width: 100%;
+  max-width: 320px;
+  margin: 8px 10px;
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    flex-direction:column;
+    align-items: center;
+  }
+  
+  .reward-card {
+    margin: 8px 0px;
+  }
 }
 </style>

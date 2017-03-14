@@ -36,9 +36,10 @@ var webpackConfig = merge(baseWebpackConfig, {
       BUILD_VERSION: JSON.stringify(require('../package.json').version),
     }),
     // https://gist.github.com/Couto/b29676dd1ab8714a818f
+    // https://gist.github.com/Couto/b29676dd1ab8714a818f
     new webpack.ProvidePlugin({
-        'Promise': 'imports?this=>global!exports?global.Promise!es6-promise',
-        'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
+        'Promise': 'imports-loader?this=>global!exports-loader?global.Promise!es6-promise',
+        'fetch': 'imports-loader?this=>global!exports-loader?global.fetch!whatwg-fetch'
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
