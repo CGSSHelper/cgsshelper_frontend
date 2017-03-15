@@ -4,7 +4,7 @@
       <img src="../assets/cgss.png">
       <p class="md-display-2">{{ $t('main.hello') }} {{ msg }}</p>
     </div>
-
+    
     <div class="title" v-if="Object.keys(now_data.comm_data).length">
       <p class="md-title">{{ $t('event.now_title') }}</p>
       <p class="md-display-1">{{ now_data.comm_data.name }}</p>
@@ -40,7 +40,8 @@
 
 <script>
 import Vue from 'vue';
-import event from '../api/event';
+import { mapState, mapActions } from 'vuex';
+
 import Card from './utils/Card';
 import Countdown from './utils/Countdown';
 
@@ -50,8 +51,6 @@ export default {
   data() {
     return {
       msg: 'CGSS Helper',
-      now_data: { comm_data: {} },
-      next_data: { comm_data: {} },
       api_addr: Vue.config.api_addr,
       show_bg_img: false,
     };
@@ -60,17 +59,25 @@ export default {
     Countdown,
     Card,
   },
-  computed: {},
+  computed: {
+    ...mapState({
+      now_data(state) {
+        return Object.assign({}, state.event.nowEvent,
+          state.event.eventList.find(elem =>
+            elem.comm_data.id === state.event.nowEvent.comm_data.id));
+      },
+      next_data: state => state.event.nextEvent,
+    }),
+  },
+  methods: {
+    ...mapActions(['getNowEvent', 'getNextEvent', 'getDetail']),
+  },
   mounted() {
-    event.now().then((res) => {
-      this.now_data = Object.assign({}, res);
-      return event.detail(res.comm_data.id);
-    }).then((res) => {
-      this.now_data = Object.assign({}, res);
+    this.getNowEvent().then((res) => {
+      this.getDetail(res.comm_data.id);
     });
-    event.next().then((res) => {
-      this.next_data = Object.assign({}, res);
-    });
+    // event.point(1012).then(res => console.log(res));
+    this.getNextEvent();
   },
 };
 </script>

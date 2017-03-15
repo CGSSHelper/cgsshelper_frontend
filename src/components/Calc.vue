@@ -1,7 +1,11 @@
 <template>
-  <md-whiteframe>
-    calculator view
-  </md-whiteframe>
+  <md-tabs md-fixed>
+    <md-tab id="atapon" :md-label="$t('event.atapon_name')">
+      
+    </md-tab>
+    <md-tab id="medley" :md-label="$t('event.medley_name')"></md-tab>
+    <md-tab id="party" :md-label="$t('event.party_name')"></md-tab>
+  </md-tabs>
 </template>
 
 <script>

@@ -7,5 +7,8 @@
   "event.result_start_countdown": "离结果公布还有",
   "event.result_end_countdown": "离结果公布结束还有",
   "event.background_image": "背景图预览",
-  "event.reward_cards": "奖励卡片"
+  "event.reward_cards": "奖励卡片",
+  "event.atapon_name": "积分活动",
+  "event.medley_name": "连奏活动",
+  "event.party_name": "合奏活动"
 }
