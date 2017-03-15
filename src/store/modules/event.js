@@ -2,8 +2,8 @@ import eventApi from '../../api/event';
 import * as types from '../mutation-types';
 
 const state = {
-  nowEvent: {},
-  nextEvent: {},
+  nowEvent: { comm_data: {} },
+  nextEvent: { comm_data: {} },
   eventList: [],
 };
 

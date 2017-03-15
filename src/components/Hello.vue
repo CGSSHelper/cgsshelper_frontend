@@ -24,8 +24,8 @@
       <md-button class="md-primary md-raised" v-if="!show_bg_img" @click.native="show_bg_img = !show_bg_img">show image</md-button>
       <img v-if="show_bg_img" @click.native="show_bg_img = !show_bg_img" v-lazy="api_addr + now_data.comm_data.bg_url" style="max-width: 100%"/>
       <p class="md-title">{{ $t('event.reward_cards') }}</p>
-      <div class="card-container">
-          <Card class="reward-card" v-if="now_data.detail" v-for="card in now_data.detail.available" :card-id="card.reward_id" :key="card.reward_id"></Card>
+      <div class="card-container" v-if="now_data.detail">
+          <Card class="reward-card" v-for="card in now_data.detail.available" :card-id="card.reward_id" :key="card.reward_id"></Card>
       </div>
     </div>
 
