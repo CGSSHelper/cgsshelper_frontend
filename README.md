@@ -1,4 +1,4 @@
-# cgsshelper_vue
+# GCSS Helper
 
 > CGSS Helper frontend in Vue.js
 
