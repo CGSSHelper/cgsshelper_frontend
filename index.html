@@ -5,7 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
+    <link rel="manifest" href="/manifest.json">
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
+    <script>
+      var OneSignal = window.OneSignal || [];
+      OneSignal.push(["init", {
+        subdomainName: 'cgsshelper',
+        appId: "6da9f5d9-eaa2-4ec7-918a-84ae83c6d69d",
+        safari_web_id: "web.onesignal.auto.48cecb45-b9e1-42c4-afaa-e45f7f034833",
+        autoRegister: false,
+        notifyButton: {
+          enable: true /* Set to false to hide */
+        },
+        persistNotification: false,
+        welcomeNotification: {
+            "title": "Thanks for subscribing",
+            "message": "You will be warned when event nearly ends and new event starts.",
+        },
+      }]);
+    </script>
     <title>CGSS Helper</title>
   </head>
   <body>

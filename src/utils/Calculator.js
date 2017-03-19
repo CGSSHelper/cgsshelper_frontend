@@ -241,7 +241,7 @@ function calcAtapon(args) {
  *  @ReturnVal   计算结果（数组/JSON）
  *  @Params      restTime    活动剩余时间（秒）
  *               unusedLP    每天浪费体力
- *               medleyArgs  普通曲参数（[0]=难度，[1]=分数等级）
+ *               medleyArgs  普通曲参数（[0]=难度）
  *               encoreArgs  活动曲参数（[0]=难度，[1]=分数等级,[2]=失败概率）
  *               hakoyureLv  欢呼等级（ハコユレLv）
  *               Lv,Exp      等级和经验（现有）
@@ -272,7 +272,7 @@ function calcMedley(args) {
   // 初始化变量
   const LPTime = 300;
   const PlayTime = 180 * 4;
-  let medleyTimes = 0;
+  let eventTimes = 0;
   let useLP = 0;
   let useLC = 0;
   let failTimes = 0;
@@ -291,7 +291,7 @@ function calcMedley(args) {
       hasLP -= minusLP;
       Exp += medleyExp;
       // restTime -= PlayTime;
-      medleyTimes += 1;
+      eventTimes += 1;
       const a = Math.random();
       if (hakoyureLv >= 17 && a >= encoreArgs[2] / 100) { // 3+1
         hasLP += 2;
@@ -345,9 +345,9 @@ function calcMedley(args) {
     }
   }
   useLC *= 50;
-  const totalTime = medleyTimes * PlayTime;
+  const totalTime = eventTimes * PlayTime;
   const returnArgs = {
-    medleyTimes,
+    eventTimes,
     useLP,
     useLC,
     totalTime,
@@ -465,9 +465,7 @@ function calcParty(args) {
     isWarn: totalTime >= Number(args.restTime),
   };
 
-  return {
-    args: returnArgs,
-  };
+  return returnArgs;
 }
 
 export {
