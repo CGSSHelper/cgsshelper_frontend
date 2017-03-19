@@ -23,7 +23,7 @@ Vue.use(vueLazyload, {
 
 if (process.env.NODE_ENV === 'development') {
   Vue.config.api_addr = '//localhost:8888';
-} else if (process.env.NODE_ENV === 'production') {
+} else if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'testing') {
   Vue.config.api_addr = '//api.cgsshelper.tk';
 }
 

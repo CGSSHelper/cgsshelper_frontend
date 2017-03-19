@@ -1,6 +1,6 @@
 {
   "name": "cgsshelper_vue",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "CGSS Helper frontend in Vue.js",
   "author": "DNARoma <tangpei506@gmail.com>",
   "private": true,
@@ -12,8 +12,8 @@
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
     "preversion": "npm test",
-    "version": "npm run build && git add -A dist",
-    "postversion": "git push && git push --tags && rm -rf build/temp"
+    "version": "npm run build",
+    "postversion": "git push && git push --tags"
   },
   "dependencies": {
     "es6-promise": "^4.1.0",
