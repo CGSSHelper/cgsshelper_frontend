@@ -1,5 +1,10 @@
 {
   "main.hello": "欢迎使用",
+  "sidenav.index": "主页",
+  "sidenav.calc": "活动算分",
+  "sidenav.calc.atapon": "积分活动",
+  "sidenav.calc.medley": "连奏活动",
+  "sidenav.calc.party": "合奏活动",
   "event.now_title": "当前活动",
   "event.next_title": "下期活动",
   "event.next_countdown": "离活动开始还有",
@@ -12,6 +17,7 @@
   "event.caravan_name": "卡片掉落活动",
   "event.medley_name": "连奏活动",
   "event.party_name": "合奏活动",
+  "event.tour_name": "巡回活动",
   "calc.remaining_time": "剩余活动时间（秒）",
   "calc.use_current_remain": "使用当前活动剩余时间",
   "calc.not_use_current_remain": "自定义活动剩余时间",
