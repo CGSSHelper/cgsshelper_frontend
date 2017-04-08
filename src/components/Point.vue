@@ -45,8 +45,8 @@
         v-if="eventPoints.length"
     ></vue-chart>
     <vue-chart
-        :columns="pointColumns"
-        :rows="pointRows"
+        :columns="scoreColumns"
+        :rows="scoreRows"
         :options="{
           height: 500,
           title: `${this.eventPointDataList[this.selectedEvent].name} Score Rank Chart`,
