@@ -22,6 +22,13 @@ export default {
         .catch(res => reject(res));
     });
   },
+  all() {
+    return new Promise((resolve, reject) => {
+      fetch(`${Vue.config.api_addr}/event/all`, reqInit).then(res => res.json())
+        .then(res => resolve(res.result))
+        .catch(res => reject(res));
+    });
+  },
   detail(id) {
     return new Promise((resolve, reject) => {
       fetch(`${Vue.config.api_addr}/event/${id}`, reqInit).then(res => res.json())

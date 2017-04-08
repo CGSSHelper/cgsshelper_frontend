@@ -5,6 +5,7 @@ import Calc from '@/components/Calc';
 import Atapon from '@/components/Calc/Atapon';
 import Medley from '@/components/Calc/Medley';
 import Party from '@/components/Calc/Party';
+import Point from '@/components/Point';
 
 Vue.use(Router);
 
@@ -36,6 +37,11 @@ export default new Router({
           component: Party,
         },
       ],
+    },
+    {
+      path: '/point',
+      name: 'Point',
+      component: Point,
     },
   ],
 });

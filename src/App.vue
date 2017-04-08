@@ -61,5 +61,6 @@ html, body {
 .main-content {
   flex: 1;
   overflow: auto;
+  padding: 15px 20px 15px 20px;
 }
 </style>

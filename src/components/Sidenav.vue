@@ -7,7 +7,9 @@
 
     <md-list>
       <md-list-item>
-        <router-link to="/" tag="span" :exact="true" @click.native="hideSidenav"><md-icon>home</md-icon> {{$t('sidenav.index')}}</router-link>
+        <router-link to="/" :exact="true" @click.native="hideSidenav">
+          <span><md-icon>home</md-icon> {{$t('sidenav.index')}}</span>
+        </router-link>
       </md-list-item>
       <md-list-item>
         <span><md-icon>keyboard</md-icon> {{$t('sidenav.calc')}}</span>
@@ -24,6 +26,11 @@
             </md-list-item>
           </md-list>
         </md-list-expand>
+      </md-list-item>
+      <md-list-item>
+        <router-link to="/point" @click.native="hideSidenav">
+          <span><md-icon>assessment</md-icon> {{$t('sidenav.point')}}</span>
+        </router-link>
       </md-list-item>
     </md-list>
     <p class="md-body-1">Build Date: {{buildDate}} Ver: {{ver}}</p>

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <p class="md-title">{{ $t('event.medley_name') }}</p>
     <md-layout md-column-small md-gutter="8">
       <md-layout>
         <md-input-container>
@@ -179,7 +180,7 @@ export default {
     }),
   },
   methods: {
-    ...mapActions(['getNowEvent', 'getNextEvent', 'getDetail']),
+    ...mapActions(['getNowEvent', 'getNextEvent', 'getEventDetail']),
     calcMedley() {
       this.calcResult = {
         ...Calc.calcMedley({
@@ -205,13 +206,14 @@ export default {
         type: 'medley',
       };
       this.$refs.resultDialog.open();
+      this.$ga.trackEvent('calc', 'click', 'medley');
     },
     handleRemainingTime() {
       this.isCurrRemainTime = !this.isCurrRemainTime;
       if (this.isCurrRemainTime) {
         if (!Object.keys(this.now_data.comm_data).length) {
           this.getNowEvent().then((res) => {
-            this.getDetail(res.comm_data.id);
+            this.getEventDetail(res.comm_data.id);
             this.currRemainTimer = setInterval(() => {
               const targetTimeSec = Math.trunc(
                 (new Date(this.now_data.comm_data.event_end)).getTime() / 1000);

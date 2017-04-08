@@ -6,6 +6,7 @@ import vuexI18n from 'vuex-i18n';
 import vueMoment from 'vue-moment';
 import vueLazyload from 'vue-lazyload';
 import VueAnalytics from 'vue-analytics';
+import VueCharts from 'vue-charts';
 
 import 'vue-material/dist/vue-material.css';
 
@@ -22,6 +23,7 @@ Vue.use(vueLazyload, {
   loading: require('./assets/57.gif'),
 });
 Vue.use(VueAnalytics, { id: 'UA-69535723-1', router });
+Vue.use(VueCharts);
 
 if (process.env.NODE_ENV === 'development') {
   Vue.config.api_addr = '//localhost:8888';

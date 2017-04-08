@@ -5,6 +5,7 @@
   "sidenav.calc.atapon": "积分活动",
   "sidenav.calc.medley": "连奏活动",
   "sidenav.calc.party": "合奏活动",
+  "sidenav.point": "历次活动积分排名",
   "event.now_title": "当前活动",
   "event.next_title": "下期活动",
   "event.next_countdown": "离活动开始还有",
@@ -52,5 +53,15 @@
   "calc.result.final_exp": "最终经验",
   "calc.result.consum_stamina": "消耗药水（体力加和）",
   "calc.result.consum_stone": "消耗宝石",
-  "calc.result.warning": "游戏时间大于或等于剩余时间，请多多注意！"
+  "calc.result.warning": "游戏时间大于或等于剩余时间，请多多注意！",
+  "point.title": "历次活动积分排名",
+  "point.select_event": "选择的活动",
+  "point.please_select_event": "请点击选择一个活动来查看pt和排名",
+  "point.selected_event": "当前选择的活动",
+  "point.select_throttle": "选择间隔",
+  "point.select_throttle_option_0": "每天",
+  "point.select_throttle_option_1": "每半天",
+  "point.select_throttle_option_2": "每小时",
+  "point.select_throttle_option_3": "每十五分钟（很慢！）",
+  "temp.new_feature_chart": "历史活动分数线已上线，从侧边导航栏进入！"
 }

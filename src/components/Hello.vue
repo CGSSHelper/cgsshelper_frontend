@@ -3,12 +3,13 @@
     <div class="title">
       <img src="/cgss.png">
       <p class="md-display-2">{{ $t('main.hello') }} {{ msg }}</p>
+      <p class="md-title">{{ $t('temp.new_feature_chart') }}</p>
     </div>
 
     <md-snackbar md-position="top center" ref="Subscribe" :md-duration="100000">
       <span>We're now using <a href="https://onesignal.com/">OneSignal</a> for notifications such as Event start/end alert.</span>
       <md-button @click.native="handleSubscribe">Subscribe</md-button>
-      <md-button class="md-accent" @click.native="$refs.Subscribe.close()">No Interest</md-button>
+      <md-button class="md-accent" @click.native="handleNoInter">No Interest</md-button>
     </md-snackbar>
 
     <md-snackbar md-position="top center" ref="ThankSubscribe" :md-duration="2000">
@@ -33,8 +34,8 @@
         <countdown :target-time="now_data.comm_data.result_end"></countdown>
       </div>
       <p class="md-title">{{ $t('event.background_image') }}</p>
-      <md-button class="md-primary md-raised" v-if="!show_bg_img" @click.native="show_bg_img = !show_bg_img">show image</md-button>
-      <img v-if="show_bg_img" @click.native="show_bg_img = !show_bg_img" v-lazy="api_addr + now_data.comm_data.bg_url" style="max-width: 100%"/>
+      <md-button class="md-primary md-raised" v-if="!show_bg_img" :href="api_addr + now_data.comm_data.bg_url" target="_blank">show image</md-button>
+      <!--<img v-if="show_bg_img" @click.native="show_bg_img = !show_bg_img" v-lazy="api_addr + now_data.comm_data.bg_url" style="max-width: 100%"/>-->
       <div v-if="(new Date(now_data.comm_data.event_end)) > (new Date())">
       <p class="md-title">{{ $t('event.reward_cards') }}</p>
         <div class="card-container" v-if="now_data.detail">
@@ -85,16 +86,24 @@ export default {
     }),
   },
   methods: {
-    ...mapActions(['getNowEvent', 'getNextEvent', 'getDetail']),
+    ...mapActions([
+      'getNowEvent',
+      'getNextEvent',
+      'getEventDetail',
+    ]),
     handleSubscribe() {
       OneSignal.registerForPushNotifications();
+      this.$refs.Subscribe.close();
+    },
+    handleNoInter() {
+      localStorage.setItem('NoIntre', true);
       this.$refs.Subscribe.close();
     },
   },
   mounted() {
     if (!Object.keys(this.now_data.comm_data).length) {
       this.getNowEvent().then((res) => {
-        this.getDetail(res.comm_data.id);
+        this.getEventDetail(res.comm_data.id);
       });
     }
     // event.point(1012).then(res => console.log(res));
@@ -103,7 +112,7 @@ export default {
     }
     OneSignal.push(() => {
       OneSignal.isPushNotificationsEnabled().then((isEnabled) => {
-        if (!isEnabled) this.$refs.Subscribe.open();
+        if (!isEnabled && !localStorage.getItem('NoIntre')) this.$refs.Subscribe.open();
       });
       OneSignal.on('subscriptionChange', (isSubscribed) => {
         // console.log("The user's subscription state is now:", isSubscribed, this.$refs);

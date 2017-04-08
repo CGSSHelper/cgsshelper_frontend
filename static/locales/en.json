@@ -5,6 +5,7 @@
   "sidenav.calc.atapon": "Event Atapon",
   "sidenav.calc.medley": "Event Medley",
   "sidenav.calc.party": "Event Party",
+  "sidenav.point": "Event Pt & Rank",
   "event.now_title": "Current event",
   "event.next_title": "Next event",
   "event.next_countdown": "Until event begins is still",
@@ -52,5 +53,15 @@
   "calc.result.final_exp": "Final exp",
   "calc.result.consum_stamina": "Stamina drink consumption (total stamina)",
   "calc.result.consum_stone": "Stone consumption",
-  "calc.result.warning": "Insufficient game time, please notice remaining event time."
+  "calc.result.warning": "Insufficient game time, please notice remaining event time.",
+  "point.title": "History Event Pt & Rank",
+  "point.select_event": "Selected Event",
+  "point.please_select_event": "Please click to select a event to check pt & rank",
+  "point.selected_event": "Current selected event",
+  "point.select_throttle": "Select Interval",
+  "point.select_throttle_option_0": "Per day",
+  "point.select_throttle_option_1": "Per half day",
+  "point.select_throttle_option_2": "Per hour",
+  "point.select_throttle_option_3": "Per a quarter (very slow!)",
+  "temp.new_feature_chart": "History event point rank chart is avaliable, check from sidebar"
 }
