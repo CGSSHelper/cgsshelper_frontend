@@ -10,9 +10,9 @@ const state = {
 const getters = {
   eventBaseDataList(_state) {
     return _state.eventList.map(elem => ({
-      id: elem.id,
-      name: elem.name,
-      type: elem.type,
+      id: elem.comm_data.id,
+      name: elem.comm_data.name,
+      type: elem.comm_data.type,
     }));
   },
   eventPointDataList(_state, _getters) {
@@ -56,7 +56,7 @@ const mutations = {
     _state.nextEvent = data;
   },
   [types.ADD_EVENT_DETAIL](_state, data) {
-    const foundEvent = _state.eventList.find(elem => elem.id === data.id);
+    const foundEvent = _state.eventList.find(elem => elem.comm_data.id === data.comm_data.id);
     if (!foundEvent) _state.eventList = [..._state.eventList, data];
     else {
       const foundIdx = _state.eventList.indexOf(foundEvent);
@@ -65,7 +65,7 @@ const mutations = {
   },
   [types.ADD_EVENT_ALL](_state, data) {
     data.forEach((elem) => {
-      const foundEvent = _state.eventList.find(_elem => _elem.id === data.id);
+      const foundEvent = _state.eventList.find(_elem => _elem.comm_data.id === elem.comm_data.id);
       if (!foundEvent) _state.eventList = [..._state.eventList, elem];
     });
   },
