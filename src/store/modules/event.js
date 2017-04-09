@@ -17,7 +17,7 @@ const getters = {
   },
   eventPointDataList(_state, _getters) {
     return _getters.eventBaseDataList.filter(
-      elem => ['1', '3', '5'].indexOf(elem.type) !== -1);
+      elem => ['Atapon', 'Medley', 'Tour'].indexOf(elem.type) !== -1);
   },
 };
 
