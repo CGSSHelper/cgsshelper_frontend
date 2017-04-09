@@ -1,6 +1,6 @@
 {
   "name": "cgsshelper_vue",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "CGSS Helper frontend in Vue.js",
   "author": "DNARoma <tangpei506@gmail.com>",
   "private": true,
